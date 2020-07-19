@@ -129,7 +129,7 @@ function fonts() {
   return src(path.src.fonts).pipe(ttf2woff2()).pipe(dest(path.build.fonts));
 }
 
-function fontsStyle(params) {
+function fontsStyle() {
   let file_content = fs.readFileSync(srcFolder + "/scss/fonts.scss");
   if (file_content == "") {
     fs.writeFile(srcFolder + "/scss/fonts.scss", "", cb);
