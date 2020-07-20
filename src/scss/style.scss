@@ -20,16 +20,13 @@ div {
     font-size: 24px;
 
     &:nth-child(1) {
-      color: $pug;
+      color: $gulp;
     }
 
     &:nth-child(2) {
       color: $sass;
     }
 
-    &:nth-child(3) {
-      color: $gulp;
-    }
 
     @include media-breakpoint-down(md) {
       font-size: 30px;
