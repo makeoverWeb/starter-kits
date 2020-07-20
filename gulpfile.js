@@ -66,7 +66,9 @@ function browserSync() {
 
 function html() {
   return src(path.src.html)
-    .pipe(pug())
+    .pipe(pug({
+      pretty: true
+    }))
     .pipe(dest(path.build.html))
     .pipe(browsersync.stream());
 }
