@@ -19,13 +19,14 @@ ttf2woff2 = require("gulp-ttf2woff2");
 fonter = require("gulp-fonter");
 newer = require("gulp-newer");
 fs = require("fs");
+pug = require("gulp-pug")
 
 const distFolder = "dist";
 const srcFolder = "src";
 
 let path = {
   src: {
-    html: [srcFolder + "/*.html", "!" + srcFolder + "/_*.html"],
+    html: [srcFolder + "/html/views/*.pug", "!" + srcFolder + "/html/views/_*.pug"],
     css: srcFolder + "/scss/style.scss",
     js: srcFolder + "/js/common.js",
     img: srcFolder + "/img/**/*.+(png|jpg|gif|ico|svg|webp)",
@@ -33,7 +34,7 @@ let path = {
     fonts: srcFolder + "/fonts/*.ttf",
   },
   watch: {
-    html: srcFolder + "/**/*.html",
+    html: srcFolder + "/**/*.pug",
     css: srcFolder + "/scss/**/*.scss",
     js: srcFolder + "/js/**/*.js",
     img: srcFolder + "/img/**/*.+(png|jpg|gif|ico|svg|webp)",
@@ -65,6 +66,7 @@ function browserSync() {
 
 function html() {
   return src(path.src.html)
+    .pipe(pug())
     .pipe(dest(path.build.html))
     .pipe(browsersync.stream());
 }
