@@ -19,15 +19,19 @@ ttf2woff2 = require("gulp-ttf2woff2");
 fonter = require("gulp-fonter");
 newer = require("gulp-newer");
 fs = require("fs");
+fileinclude = require("gulp-file-include");
 
 const distFolder = "dist";
 const srcFolder = "src";
 
 let path = {
   src: {
-    html: [srcFolder + "/html/views/*.html", "!" + srcFolder + "/html/views/_*.html"],
+    html: [
+      srcFolder + "/html/*.html",
+      "!" + srcFolder + "/html/_*.html",
+    ],
     css: srcFolder + "/scss/style.scss",
-    js: srcFolder + "/js/common.js",
+    js: srcFolder + "/js/app.js",
     img: srcFolder + "/img/**/*.+(png|jpg|gif|ico|svg|webp)",
     /* *.{jpg, png, svg, gif,ico, webp} */
     fonts: srcFolder + "/fonts/*.ttf",
@@ -65,6 +69,7 @@ function browserSync() {
 
 function html() {
   return src(path.src.html)
+    .pipe(fileinclude())
     .pipe(dest(path.build.html))
     .pipe(browsersync.stream());
 }
@@ -79,6 +84,7 @@ function css() {
     .pipe(group_media())
     .pipe(
       autoprefixer({
+        grid: true,
         overrideBrowserslist: ["last 5 versions"],
         cascade: true,
       })
@@ -96,6 +102,7 @@ function css() {
 
 function js() {
   return src(path.src.js)
+    .pipe(fileinclude())
     .pipe(dest(path.build.js))
     .pipe(uglify())
     .pipe(

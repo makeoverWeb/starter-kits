@@ -1,39 +1,41 @@
-@import 'global';
-@import 'variables';
-@import 'mixins';
-@import 'fonts';
-@import 'colors';
+@import "global";
+@import "variables";
+@import "mixins";
+@import "fonts";
+@import "colors";
+@import "./blocks/header";
+@import "./blocks/main";
+@import "./blocks/footer";
+
+// @include media-breakpoint-down(md) {
+//   font-size: 40px;
+// }
 
 body {
-  margin-top: 100px;
+  padding: 0;
+  margin: 0;
+  font-family: "LibreFranklin", sans-serif;
+  letter-spacing: 0.02em;
+  font-size: 18px;
+  color: #090808;
+  transition: all 0.5s ease;
+  line-height: 1.5em;
 }
 
-div {
-  font-size: 30px;
+.wrapper {
+  overflow: hidden;
+  min-height: 100%;
+}
 
-  font-family: 'SpecialElite-Regular', serif;
-  text-align: center;
+
+.container {
+  max-width: $maxWidthContainer;
+  width: 100%;
   margin: 0 auto;
+  padding: 93px 20px 145px;
+  box-sizing: border-box;
 
-  span {
-    margin-left: 10px;
-    font-size: 24px;
-
-    &:nth-child(1) {
-      color: $gulp;
-    }
-
-    &:nth-child(2) {
-      color: $sass;
-    }
-
-
-    @include media-breakpoint-down(md) {
-      font-size: 30px;
-    }
-  }
-
-  @include media-breakpoint-down(md) {
-    font-size: 40px;
+  @include media-breakpoint-down(lg) {
+    padding: 50px 20px 45px;
   }
 }

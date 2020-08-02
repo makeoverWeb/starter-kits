@@ -1,24 +1,11 @@
+@import 'variables';
+@import 'colors';
+@import 'mixins';
+
+
 :focus {
   outline: none;
   box-shadow: none;
-}
-
-body {
-  font-family: 'SpecialElite', sans-serif;
-  padding: 0;
-  margin: 0;
-  letter-spacing: 0.02em;
-  font-size: 18px;
-  color: #090808;
-  transition: all 0.5s ease;
-  font-weight: 500;
-  line-height: 1.5em;
-}
-
-.container {
-  margin: 0 auto;
-  padding: 0;
-  width: 1170px;
 }
 
 div,
@@ -47,31 +34,23 @@ h6 {
   line-height: 1.2em;
   color: #090808;
   font-weight: 900;
-  text-align: center;
 }
 
 h1 {
-  font-size: 38px;
-  color: #fff;
+  font-size: 30px;
+  color: $white;
 }
 
 h2 {
-  font-size: 30px;
+  font-size: 20px;
+
 }
 
 h3 {
-  font-size: 23px;
-}
-
-h4 {
-  font-size: 21px;
-  font-weight: 600;
-}
-
-h5 {
-  font-size: 15px;
-  color: #fff;
-  font-weight: 800;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333333;
+  
 }
 
 a,
