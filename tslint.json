@@ -1,0 +1,21 @@
+{
+  "extends": ["tslint:recommended", "tslint-config-prettier"],
+  "rules": {
+    "no-console": false,
+    "no-angle-bracket-type-assertion": false,
+    "ordered-imports": false,
+    "object-literal-sort-keys": false,
+    "eofline": true,
+    "only-arrow-functions": false,
+    "member-ordering": [false, { "order": "fields-first" }],
+    "no-shadowed-variable": false,
+    "no-unused-expression": false,
+    "variable-name": [true, "ban-keywords", false, "allow-leading-underscore"],
+    "interface-name": false,
+    "prefer-for-of": false,
+    "class-name": false,
+    "no-debugger": false,
+    "no-string-literal": false,
+    "arrow-return-shorthand": false
+  }
+}

@@ -1,34 +1,77 @@
 {
-  "name": "starter-kit-gulp4-pug-scss",
-  "version": "1.0.0",
-  "description": "стартовый шаблон для верстки",
-  "main": "index.html",
+  "name": "media-front",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "@types/react-redux": "^7.1.5",
+    "@types/react-router-dom": "^5.1.1",
+    "@types/react-select": "^3.0.6",
+    "@types/redux-logger": "^3.0.7",
+    "axios": "^0.18.0",
+    "babel-loader": "8.0.5",
+    "classnames": "^2.2.6",
+    "connected-react-router": "^6.5.2",
+    "history": "^4.10.1",
+    "moment": "^2.24.0",
+    "node-sass": "^4.11.0",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
+    "react-redux": "^7.1.3",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "2.1.5",
+    "react-scripts-ts": "^4.0.8",
+    "react-select": "^3.0.8",
+    "react-table": "^6.8.6",
+    "redux": "^4.0.4",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0"
+  },
+  "config": {
+    "registry": "rlab.lad24.ru/unoto-platform/modules/media/frontend"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "react-scripts start",
+    "build": "REACT_APP_API_URL=https://unoto.lad24.ru PUBLIC_URL=/media/1.0/settings react-scripts build",
+    "buildProd": "REACT_APP_API_URL=https://core.unoto.com PUBLIC_URL=/media/1.0/settings react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "increment-version": "semver -i $(cat version.num) > version.num",
+    "docker-build": "docker build -t $npm_package_config_registry:$(cat version.num) .",
+    "docker-push": "docker push $npm_package_config_registry:$(cat version.num)",
+    "build-and-push": "npm run build && npm run increment-version && npm run docker-build && npm run docker-push",
+    "build-and-push-prod": "npm run buildProd && npm run increment-version && npm run docker-build && npm run docker-push"
   },
-  "keywords": [
-    "gulp",
-    "pug",
-    "sass"
-  ],
-  "author": "makeoverweb",
-  "license": "ISC",
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not ie <= 11",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "devDependencies": {
-    "browser-sync": "^2.26.10",
-    "del": "^5.1.0",
-    "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^7.0.1",
-    "gulp-clean-css": "^4.3.0",
-    "gulp-fonter": "^0.3.0",
-    "gulp-group-css-media-queries": "^1.2.2",
-    "gulp-imagemin": "^7.1.0",
-    "gulp-newer": "^1.4.0",
-    "gulp-pug": "^4.0.1",
-    "gulp-rename": "^2.0.0",
-    "gulp-sass": "^4.1.0",
-    "gulp-ttf2woff": "^1.1.1",
-    "gulp-ttf2woff2": "^3.0.0",
-    "gulp-uglify-es": "^2.0.0"
+    "@types/react-table": "^6.8.5",
+    "@babel/core": "^7.2.2",
+    "@types/history": "^4.7.2",
+    "@types/node": "^10.12.2",
+    "@types/react": "^16.4.18",
+    "@types/react-dom": "^16.0.9",
+    "prettier": "^1.16.1",
+    "semver": "^5.6.0",
+    "tslint-config-airbnb": "^5.11.1",
+    "tslint-react-recommended": "^1.0.15",
+    "typescript": "^3.1.6"
   },
-  "dependencies": {}
+  "prettier": {
+    "singleQuote": true
+  }
 }
