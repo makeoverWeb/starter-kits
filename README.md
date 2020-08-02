@@ -1,2 +1,1 @@
-# starter-kit-gulp4
-starter-kit-gulp4
+# gulp4-sass
